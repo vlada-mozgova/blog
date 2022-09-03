@@ -1,4 +1,5 @@
 import AllPosts from "../../components/posts/all-posts/all-posts";
+import { getAllPosts } from "../../helpers/post-utils";
 const DUMMY_POSTS = [
   {
     title: "GETTING STARTED",
@@ -32,5 +33,14 @@ const DUMMY_POSTS = [
 const AllPostsPage = () => {
   return <AllPosts posts={DUMMY_POSTS} />;
 };
+
+export function getStaticProps() {
+  const featuredPosts = getAllPosts();
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+  };
+}
 
 export default AllPostsPage;
