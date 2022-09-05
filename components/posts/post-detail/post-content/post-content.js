@@ -1,9 +1,14 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 import PostHeader from "../post-header/post-header";
 import classes from "./post-content.module.scss";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+SyntaxHighlighter.registerLanguage("js", js);
+SyntaxHighlighter.registerLanguage("css", css);
 
 const PostContent = ({ post }) => {
   const customRenderes = {
