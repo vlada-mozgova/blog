@@ -13,12 +13,14 @@ const PostContent = ({ post }) => {
         const image = node.children[0];
 
         return (
-          <Image
-            src={`/images/posts/${post.slug}/${image.properties.src}`}
-            alt={image.alt}
-            width={600}
-            height={300}
-          />
+          <div className={classes.image}>
+            <Image
+              src={`/images/posts/${post.slug}/${image.properties.src}`}
+              alt={image.alt}
+              width={600}
+              height={300}
+            />
+          </div>
         );
       }
     },
