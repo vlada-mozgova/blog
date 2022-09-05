@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import classes from "./notification.module.scss";
 
 const Notification = ({ title, message, status }) => {
@@ -15,11 +16,12 @@ const Notification = ({ title, message, status }) => {
     statusClasses = classes.pending;
   }
 
-  return (
+  return ReactDOM.createPortal(
     <div className={`${classes.notification} ${statusClasses}`}>
       <h2>{title}</h2>
       <p>{message}</p>
-    </div>
+    </div>,
+    document.getElementById("notifications")
   );
 };
 
